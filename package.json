@@ -6,8 +6,10 @@
   "author": "techer jean sebastien <techerjeansebastien.pro@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "NODE_ENV=test sequelize-cli db:migrate && jest test -i tests/user.test.js --watch",
-    "run:dev": "NODE_ENV=development sequelize-cli db:migrate && node server.js",
+    "migrate:test": "SET NODE_ENV=test&& sequelize-cli db:migrate",
+    "tests": "jest test.js -i --silent --testTimeout=10000 --watch",
+    "test": "SET NODE_ENV=test&& sequelize-cli db:migrate && jest test -i tests/user.test.js --watch",
+    "run:dev": "SET NODE_ENV=development&& sequelize-cli db:migrate && node server.js",
     "lint": "eslint ./"
   },
   "dependencies": {
