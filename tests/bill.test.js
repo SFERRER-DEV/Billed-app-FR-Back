@@ -142,8 +142,9 @@ describe("Test the root path", () => {
       .then((response) => {
         expect(response.body).toMatchObject({
           name: 'bill-name',
-          fileName: false,
-          filePath: false,
+          fileName: 'fixture-cat.pdf',
+          // le nom temporaire du fichier sur Windows est un hexadecimal de 32 charatères
+          filePath: /^public\\[0-9a-fA-F]{32}$/gi,
         });
       });
   });
